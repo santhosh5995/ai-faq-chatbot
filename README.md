@@ -1,6 +1,6 @@
-# AI FAQ Chatbot
+# Bass AI — AI FAQ Chatbot
 
-A chatbot that answers questions about **data engineering, Python, and SQL** — built in pure Python with **TF-IDF retrieval implemented from scratch**. No scikit-learn, no external APIs, no API key: it runs fully offline using only the Python standard library.
+A chatbot (live demo: https://santhosh5995.github.io/ai-faq-chatbot/) that answers questions about **data engineering, Python, and SQL** — built in pure Python with **TF-IDF retrieval implemented from scratch**. No scikit-learn, no external APIs, no API key: it runs fully offline using only the Python standard library.
 
 Anyone can clone it and run it instantly:
 

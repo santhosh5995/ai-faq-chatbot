@@ -1,1 +1,464 @@
-[{"answer":"ETL stands for Extract, Transform, Load. It is the process of extracting data from source systems, transforming it (cleaning, joining, aggregating, and applying business rules), and loading it into a target system such as a data warehouse where it can be analyzed.","keywords":["extract","transform","load","pipeline"],"question":"What is ETL?"},{"answer":"The medallion architecture organizes data in a lakehouse into three layers of increasing quality. Bronze holds raw data exactly as it arrived, Silver holds cleaned and validated data, and Gold holds curated, business-ready tables and aggregates optimized for reporting and analytics.","keywords":["medallion","bronze","silver","gold","layers","delta","lakehouse"],"question":"What is the medallion architecture?"},{"answer":"The main SQL join types are INNER JOIN (only matching rows from both tables), LEFT JOIN (all rows from the left table plus matches from the right), RIGHT JOIN (the reverse of LEFT), FULL OUTER JOIN (all rows from both tables), and CROSS JOIN (every combination of rows). Choosing the right join depends on whether unmatched rows should be kept or dropped.","keywords":["join","joins","inner","left","right","full","outer","cross"],"question":"What are the types of SQL joins?"},{"answer":"An index is a data structure, usually a B-tree, that lets the database find rows matching a column value without scanning the whole table. Indexes make reads and joins much faster, but they use extra storage and slow down inserts and updates slightly because the index must also be maintained.","keywords":["index","indexes","performance","query","speed","btree"],"question":"What is a database index?"},{"answer":"Normalization is the process of organizing tables so that each fact is stored in exactly one place, which reduces redundancy and prevents update anomalies. It is usually described in normal forms (1NF, 2NF, 3NF), where data is progressively split into related tables connected by keys.","keywords":["normalization","normal","forms","redundancy","1nf","2nf","3nf"],"question":"What is database normalization?"},{"answer":"A list is mutable, meaning you can add, remove, or change its elements after creation, while a tuple is immutable and cannot be changed once created. Lists use square brackets and tuples use parentheses; tuples are slightly faster and can be used as dictionary keys because they are hashable.","keywords":["list","tuple","mutable","immutable","python"],"question":"What is the difference between a Python list and a tuple?"},{"answer":"A decorator is a function that takes another function and returns a new function that adds behavior around it, using the @ syntax above the function definition. Decorators are commonly used for logging, timing, caching, and access checks without modifying the original function's code.","keywords":["decorator","python","wrapper","function"],"question":"What is a Python decorator?"},{"answer":"Pandas is a Python library for working with tabular data using DataFrames, which are like in-memory spreadsheets with labeled rows and columns. It is used to load data from files and databases, clean and transform it, run aggregations, and export results for analysis or reporting.","keywords":["pandas","dataframe","python","analysis","csv"],"question":"What is pandas used for?"},{"answer":"Apache Airflow is an open-source platform for authoring, scheduling, and monitoring data pipelines as code. Workflows are written in Python as DAGs (directed acyclic graphs) of tasks, and Airflow handles retries, dependencies, backfills, and alerting.","keywords":["airflow","orchestration","dag","scheduler","workflow","pipeline"],"question":"What is Apache Airflow?"},{"answer":"Apache Kafka is a distributed event streaming platform that stores streams of records in topics on brokers. Producers publish events to topics and consumers read them, which makes Kafka useful for real-time data pipelines, event-driven systems, and decoupling services that exchange data.","keywords":["kafka","streaming","events","producer","consumer","topic","broker"],"question":"What is Apache Kafka?"},{"answer":"A data warehouse stores structured, cleaned data in a predefined schema optimized for SQL analytics, while a data lake stores raw data in any format (structured, semi-structured, or unstructured) at low cost. Modern lakehouse designs combine both: raw storage with warehouse-style tables and governance on top.","keywords":["warehouse","lake","lakehouse","structured","storage"],"question":"What is the difference between a data warehouse and a data lake?"},{"answer":"A star schema is a dimensional model with one central fact table containing measurable events (like sales amounts) surrounded by dimension tables describing who, what, where, and when. Its simple shape makes analytical queries fast and easy to write, which is why it is the standard for BI reporting.","keywords":["star","schema","fact","dimension","modeling","warehouse"],"question":"What is a star schema?"},{"answer":"A window function performs a calculation across a set of rows related to the current row, defined with the OVER clause and optional PARTITION BY and ORDER BY, without collapsing the rows like GROUP BY does. Common examples are ROW_NUMBER, RANK, LAG/LEAD, and running sums or averages.","keywords":["window","function","over","partition","row_number","rank","running"],"question":"What is a window function in SQL?"},{"answer":"A primary key uniquely identifies each row in its own table and cannot contain NULL values. A foreign key is a column in another table that references a primary key, enforcing referential integrity so related rows cannot point to records that do not exist.","keywords":["primary","foreign","key","constraint","relation"],"question":"What is the difference between a primary key and a foreign key?"},{"answer":"A REST API is a way for systems to communicate over HTTP using standard methods like GET, POST, PUT, and DELETE on resource URLs, typically exchanging JSON. It is stateless, meaning each request contains all the information the server needs, which makes REST APIs simple to scale and integrate.","keywords":["rest","api","http","endpoint","json","get","post"],"question":"What is a REST API?"},{"answer":"Git is a distributed version control system that tracks changes to files over time. Developers commit snapshots of their work, branch to develop features safely, and merge changes back, so a team can collaborate on the same codebase with a full history of who changed what and why.","keywords":["git","version","control","commit","branch","repository","github"],"question":"What is Git used for?"},{"answer":"Docker packages an application together with its dependencies into a container image that runs the same way on any machine. Containers are lighter than virtual machines because they share the host operating system kernel, and they make deploying and reproducing environments much more reliable.","keywords":["docker","container","image","deployment"],"question":"What is Docker?"},{"answer":"Unit testing means writing small automated tests that verify a single function or component behaves correctly in isolation. Tests catch regressions early, document expected behavior, and make refactoring safer; in Python they are commonly written with the built-in unittest module or pytest.","keywords":["unit","testing","test","pytest","unittest","quality"],"question":"What is unit testing?"},{"answer":"SQL databases are relational: they store data in tables with a fixed schema and support joins and ACID transactions. NoSQL databases (document, key-value, wide-column, graph) use flexible schemas and scale horizontally more easily, trading some consistency and join power for flexibility and throughput.","keywords":["sql","nosql","relational","mongodb","document","scaling"],"question":"What is the difference between SQL and NoSQL databases?"},{"answer":"Partitioning splits a large table or dataset into smaller physical pieces, usually by a column like date or region, while keeping it one logical table. Queries that filter on the partition column then only scan the relevant pieces, which greatly improves performance on large datasets.","keywords":["partitioning","partition","sharding","performance","split"],"question":"What is data partitioning?"},{"answer":"DELETE removes rows one at a time (optionally with a WHERE clause) and can usually be rolled back. TRUNCATE quickly removes all rows from a table but keeps the table itself, and DROP removes the entire table, including its structure, from the database.","keywords":["delete","truncate","drop","remove","table"],"question":"What is the difference between DELETE, TRUNCATE, and DROP in SQL?"},{"answer":"A slowly changing dimension (SCD) describes how a warehouse handles dimension attributes that change over time, such as a customer's address. Type 1 overwrites the old value, Type 2 keeps history by adding a new row for each change, and Type 3 keeps a limited history in extra columns.","keywords":["slowly","changing","dimension","scd","type","history"],"question":"What is a slowly changing dimension?"},{"answer":"Batch processing collects data over a period and processes it in scheduled chunks, which is simple and efficient for large volumes. Stream processing handles each event as it arrives, giving results in near real time at the cost of more complex infrastructure and state management.","keywords":["batch","stream","streaming","realtime","real-time","processing"],"question":"What is the difference between batch and stream processing?"},{"answer":"A CTE (common table expression) is a temporary named result set defined with the WITH keyword at the start of a query. CTEs make complex queries easier to read by breaking them into logical steps, and recursive CTEs can even walk hierarchical data like org charts.","keywords":["cte","with","common","table","expression","query"],"question":"What is a CTE in SQL?"}]
+[
+ {
+  "answer": "ETL stands for Extract, Transform, Load. It is the process of extracting data from source systems, transforming it (cleaning, joining, aggregating, and applying business rules), and loading it into a target system such as a data warehouse where it can be analyzed.",
+  "keywords": [
+   "extract",
+   "transform",
+   "load",
+   "pipeline"
+  ],
+  "question": "What is ETL?"
+ },
+ {
+  "answer": "The medallion architecture organizes data in a lakehouse into three layers of increasing quality. Bronze holds raw data exactly as it arrived, Silver holds cleaned and validated data, and Gold holds curated, business-ready tables and aggregates optimized for reporting and analytics.",
+  "keywords": [
+   "medallion",
+   "bronze",
+   "silver",
+   "gold",
+   "layers",
+   "delta",
+   "lakehouse"
+  ],
+  "question": "What is the medallion architecture?"
+ },
+ {
+  "answer": "The main SQL join types are INNER JOIN (only matching rows from both tables), LEFT JOIN (all rows from the left table plus matches from the right), RIGHT JOIN (the reverse of LEFT), FULL OUTER JOIN (all rows from both tables), and CROSS JOIN (every combination of rows). Choosing the right join depends on whether unmatched rows should be kept or dropped.",
+  "keywords": [
+   "join",
+   "joins",
+   "inner",
+   "left",
+   "right",
+   "full",
+   "outer",
+   "cross"
+  ],
+  "question": "What are the types of SQL joins?"
+ },
+ {
+  "answer": "An index is a data structure, usually a B-tree, that lets the database find rows matching a column value without scanning the whole table. Indexes make reads and joins much faster, but they use extra storage and slow down inserts and updates slightly because the index must also be maintained.",
+  "keywords": [
+   "index",
+   "indexes",
+   "performance",
+   "query",
+   "speed",
+   "btree"
+  ],
+  "question": "What is a database index?"
+ },
+ {
+  "answer": "Normalization is the process of organizing tables so that each fact is stored in exactly one place, which reduces redundancy and prevents update anomalies. It is usually described in normal forms (1NF, 2NF, 3NF), where data is progressively split into related tables connected by keys.",
+  "keywords": [
+   "normalization",
+   "normal",
+   "forms",
+   "redundancy",
+   "1nf",
+   "2nf",
+   "3nf"
+  ],
+  "question": "What is database normalization?"
+ },
+ {
+  "answer": "A list is mutable, meaning you can add, remove, or change its elements after creation, while a tuple is immutable and cannot be changed once created. Lists use square brackets and tuples use parentheses; tuples are slightly faster and can be used as dictionary keys because they are hashable.",
+  "keywords": [
+   "list",
+   "tuple",
+   "mutable",
+   "immutable",
+   "python"
+  ],
+  "question": "What is the difference between a Python list and a tuple?"
+ },
+ {
+  "answer": "A decorator is a function that takes another function and returns a new function that adds behavior around it, using the @ syntax above the function definition. Decorators are commonly used for logging, timing, caching, and access checks without modifying the original function's code.",
+  "keywords": [
+   "decorator",
+   "python",
+   "wrapper",
+   "function"
+  ],
+  "question": "What is a Python decorator?"
+ },
+ {
+  "answer": "Pandas is a Python library for working with tabular data using DataFrames, which are like in-memory spreadsheets with labeled rows and columns. It is used to load data from files and databases, clean and transform it, run aggregations, and export results for analysis or reporting.",
+  "keywords": [
+   "pandas",
+   "dataframe",
+   "python",
+   "analysis",
+   "csv"
+  ],
+  "question": "What is pandas used for?"
+ },
+ {
+  "answer": "Apache Airflow is an open-source platform for authoring, scheduling, and monitoring data pipelines as code. Workflows are written in Python as DAGs (directed acyclic graphs) of tasks, and Airflow handles retries, dependencies, backfills, and alerting.",
+  "keywords": [
+   "airflow",
+   "orchestration",
+   "dag",
+   "scheduler",
+   "workflow",
+   "pipeline"
+  ],
+  "question": "What is Apache Airflow?"
+ },
+ {
+  "answer": "Apache Kafka is a distributed event streaming platform that stores streams of records in topics on brokers. Producers publish events to topics and consumers read them, which makes Kafka useful for real-time data pipelines, event-driven systems, and decoupling services that exchange data.",
+  "keywords": [
+   "kafka",
+   "streaming",
+   "events",
+   "producer",
+   "consumer",
+   "topic",
+   "broker"
+  ],
+  "question": "What is Apache Kafka?"
+ },
+ {
+  "answer": "A data warehouse stores structured, cleaned data in a predefined schema optimized for SQL analytics, while a data lake stores raw data in any format (structured, semi-structured, or unstructured) at low cost. Modern lakehouse designs combine both: raw storage with warehouse-style tables and governance on top.",
+  "keywords": [
+   "warehouse",
+   "lake",
+   "lakehouse",
+   "structured",
+   "storage"
+  ],
+  "question": "What is the difference between a data warehouse and a data lake?"
+ },
+ {
+  "answer": "A star schema is a dimensional model with one central fact table containing measurable events (like sales amounts) surrounded by dimension tables describing who, what, where, and when. Its simple shape makes analytical queries fast and easy to write, which is why it is the standard for BI reporting.",
+  "keywords": [
+   "star",
+   "schema",
+   "fact",
+   "dimension",
+   "modeling",
+   "warehouse"
+  ],
+  "question": "What is a star schema?"
+ },
+ {
+  "answer": "A window function performs a calculation across a set of rows related to the current row, defined with the OVER clause and optional PARTITION BY and ORDER BY, without collapsing the rows like GROUP BY does. Common examples are ROW_NUMBER, RANK, LAG/LEAD, and running sums or averages.",
+  "keywords": [
+   "window",
+   "function",
+   "over",
+   "partition",
+   "row_number",
+   "rank",
+   "running"
+  ],
+  "question": "What is a window function in SQL?"
+ },
+ {
+  "answer": "A primary key uniquely identifies each row in its own table and cannot contain NULL values. A foreign key is a column in another table that references a primary key, enforcing referential integrity so related rows cannot point to records that do not exist.",
+  "keywords": [
+   "primary",
+   "foreign",
+   "key",
+   "constraint",
+   "relation"
+  ],
+  "question": "What is the difference between a primary key and a foreign key?"
+ },
+ {
+  "answer": "A REST API is a way for systems to communicate over HTTP using standard methods like GET, POST, PUT, and DELETE on resource URLs, typically exchanging JSON. It is stateless, meaning each request contains all the information the server needs, which makes REST APIs simple to scale and integrate.",
+  "keywords": [
+   "rest",
+   "api",
+   "http",
+   "endpoint",
+   "json",
+   "get",
+   "post"
+  ],
+  "question": "What is a REST API?"
+ },
+ {
+  "answer": "Git is a distributed version control system that tracks changes to files over time. Developers commit snapshots of their work, branch to develop features safely, and merge changes back, so a team can collaborate on the same codebase with a full history of who changed what and why.",
+  "keywords": [
+   "git",
+   "version",
+   "control",
+   "commit",
+   "branch",
+   "repository",
+   "github"
+  ],
+  "question": "What is Git used for?"
+ },
+ {
+  "answer": "Docker packages an application together with its dependencies into a container image that runs the same way on any machine. Containers are lighter than virtual machines because they share the host operating system kernel, and they make deploying and reproducing environments much more reliable.",
+  "keywords": [
+   "docker",
+   "container",
+   "image",
+   "deployment"
+  ],
+  "question": "What is Docker?"
+ },
+ {
+  "answer": "Unit testing means writing small automated tests that verify a single function or component behaves correctly in isolation. Tests catch regressions early, document expected behavior, and make refactoring safer; in Python they are commonly written with the built-in unittest module or pytest.",
+  "keywords": [
+   "unit",
+   "testing",
+   "test",
+   "pytest",
+   "unittest",
+   "quality"
+  ],
+  "question": "What is unit testing?"
+ },
+ {
+  "answer": "SQL databases are relational: they store data in tables with a fixed schema and support joins and ACID transactions. NoSQL databases (document, key-value, wide-column, graph) use flexible schemas and scale horizontally more easily, trading some consistency and join power for flexibility and throughput.",
+  "keywords": [
+   "sql",
+   "nosql",
+   "relational",
+   "mongodb",
+   "document",
+   "scaling"
+  ],
+  "question": "What is the difference between SQL and NoSQL databases?"
+ },
+ {
+  "answer": "Partitioning splits a large table or dataset into smaller physical pieces, usually by a column like date or region, while keeping it one logical table. Queries that filter on the partition column then only scan the relevant pieces, which greatly improves performance on large datasets.",
+  "keywords": [
+   "partitioning",
+   "partition",
+   "sharding",
+   "performance",
+   "split"
+  ],
+  "question": "What is data partitioning?"
+ },
+ {
+  "answer": "DELETE removes rows one at a time (optionally with a WHERE clause) and can usually be rolled back. TRUNCATE quickly removes all rows from a table but keeps the table itself, and DROP removes the entire table, including its structure, from the database.",
+  "keywords": [
+   "delete",
+   "truncate",
+   "drop",
+   "remove",
+   "table"
+  ],
+  "question": "What is the difference between DELETE, TRUNCATE, and DROP in SQL?"
+ },
+ {
+  "answer": "A slowly changing dimension (SCD) describes how a warehouse handles dimension attributes that change over time, such as a customer's address. Type 1 overwrites the old value, Type 2 keeps history by adding a new row for each change, and Type 3 keeps a limited history in extra columns.",
+  "keywords": [
+   "slowly",
+   "changing",
+   "dimension",
+   "scd",
+   "type",
+   "history"
+  ],
+  "question": "What is a slowly changing dimension?"
+ },
+ {
+  "answer": "Batch processing collects data over a period and processes it in scheduled chunks, which is simple and efficient for large volumes. Stream processing handles each event as it arrives, giving results in near real time at the cost of more complex infrastructure and state management.",
+  "keywords": [
+   "batch",
+   "stream",
+   "streaming",
+   "realtime",
+   "real-time",
+   "processing"
+  ],
+  "question": "What is the difference between batch and stream processing?"
+ },
+ {
+  "answer": "A CTE (common table expression) is a temporary named result set defined with the WITH keyword at the start of a query. CTEs make complex queries easier to read by breaking them into logical steps, and recursive CTEs can even walk hierarchical data like org charts.",
+  "keywords": [
+   "cte",
+   "with",
+   "common",
+   "table",
+   "expression",
+   "query"
+  ],
+  "question": "What is a CTE in SQL?"
+ },
+ {
+  "question": "What is Kubernetes?",
+  "keywords": [
+   "k8s",
+   "orchestration",
+   "containers",
+   "pods",
+   "cluster"
+  ],
+  "answer": "Kubernetes (K8s) is an open-source platform for automating the deployment, scaling, and management of containerized applications. You describe the desired state of your application (how many copies, what image, how much CPU and memory) in YAML files, and Kubernetes continuously works to make the real state match \u2014 restarting failed containers, spreading them across machines, and rolling out updates with no downtime."
+ },
+ {
+  "question": "What is CI/CD?",
+  "keywords": [
+   "continuous integration",
+   "continuous delivery",
+   "deployment",
+   "pipeline",
+   "devops"
+  ],
+  "answer": "CI/CD stands for Continuous Integration and Continuous Delivery/Deployment. In CI, developers merge code into a shared repository frequently, and every merge is automatically built and tested so problems surface within minutes. CD extends this by automatically releasing every change that passes the tests to staging or production, making deployments small, routine, and low-risk instead of rare, stressful events."
+ },
+ {
+  "question": "What is caching?",
+  "keywords": [
+   "cache",
+   "redis",
+   "memory",
+   "speed",
+   "latency"
+  ],
+  "answer": "Caching means storing copies of frequently used data in a fast storage layer (usually memory, such as Redis or Memcached) so future requests are served quickly without recomputing or re-querying the slow source. A cache hit returns data in about a millisecond; a miss falls through to the database and then fills the cache. The hard parts are deciding what to cache, how long it stays valid (TTL), and invalidating stale copies when the underlying data changes."
+ },
+ {
+  "question": "What is a load balancer?",
+  "keywords": [
+   "traffic",
+   "scaling",
+   "servers",
+   "alb",
+   "nginx",
+   "availability"
+  ],
+  "answer": "A load balancer is a component that distributes incoming network traffic across multiple servers so no single server gets overwhelmed. It continuously health-checks the servers, sends each request to a healthy one (using strategies like round robin or least connections), and takes failed servers out of rotation automatically. This improves both scalability (add servers to handle more traffic) and reliability (one server's failure does not take the service down)."
+ },
+ {
+  "question": "What is the difference between supervised and unsupervised learning?",
+  "keywords": [
+   "machine learning",
+   "classification",
+   "regression",
+   "clustering",
+   "labels"
+  ],
+  "answer": "Supervised learning trains a model on labeled examples \u2014 inputs paired with the correct answer \u2014 to predict outputs for new data; classification (spam or not spam) and regression (predicting a price) are the common forms. Unsupervised learning works on unlabeled data and finds structure on its own, such as clustering customers into segments or detecting unusual transactions. The key difference is whether the training data comes with the answers."
+ },
+ {
+  "question": "What is overfitting in machine learning?",
+  "keywords": [
+   "model",
+   "training",
+   "generalization",
+   "validation",
+   "test"
+  ],
+  "answer": "Overfitting happens when a model learns the training data too well \u2014 including its noise and coincidences \u2014 and then performs poorly on new, unseen data. It is like memorizing answers to practice questions instead of learning the subject. You detect it when training accuracy is much higher than validation accuracy, and you fight it with more data, simpler models, regularization, cross-validation, and techniques like early stopping."
+ },
+ {
+  "question": "What is a neural network?",
+  "keywords": [
+   "deep learning",
+   "neurons",
+   "layers",
+   "ai",
+   "weights"
+  ],
+  "answer": "A neural network is a machine learning model made of layers of simple units (neurons) connected by weighted links. Each neuron combines its inputs with learned weights, adds them up, and passes the result through an activation function; stacking many layers lets the network learn increasingly abstract patterns, which is why deep networks excel at images, speech, and language. Training adjusts the weights by comparing predictions with correct answers and propagating the error backward (backpropagation)."
+ },
+ {
+  "question": "What is cloud computing?",
+  "keywords": [
+   "aws",
+   "azure",
+   "gcp",
+   "servers",
+   "iaas",
+   "saas"
+  ],
+  "answer": "Cloud computing is renting computing resources \u2014 servers, storage, databases, and software \u2014 over the internet from providers like AWS, Microsoft Azure, and Google Cloud, paying for what you use instead of buying and maintaining your own hardware. It comes in layers: IaaS (rent raw infrastructure), PaaS (rent a managed platform to run your code), and SaaS (rent finished software, like Gmail). Its main advantages are elasticity, global reach, and no upfront hardware cost."
+ },
+ {
+  "question": "What are microservices?",
+  "keywords": [
+   "architecture",
+   "monolith",
+   "services",
+   "api",
+   "scalability"
+  ],
+  "answer": "Microservices is an architectural style where an application is built as a collection of small, independent services, each responsible for one business capability (payments, orders, notifications) and communicating over APIs or messaging. Each service can be developed, deployed, and scaled independently, often by a different team. The trade-off is operational complexity \u2014 you gain flexibility but must handle distributed failures, network latency, and data consistency across services."
+ },
+ {
+  "question": "What is the difference between REST and GraphQL?",
+  "keywords": [
+   "api",
+   "graphql",
+   "rest",
+   "endpoints",
+   "query"
+  ],
+  "answer": "REST exposes data through multiple fixed endpoints (for example /users and /users/1/orders), and each endpoint returns a server-defined shape \u2014 clients often over-fetch or need several calls. GraphQL uses a single endpoint where the client sends a query describing exactly the fields it wants, and gets back precisely that shape in one response. REST is simpler and cache-friendly; GraphQL is more flexible and efficient for complex, varying client needs."
+ },
+ {
+  "question": "What is data quality and why does it matter?",
+  "keywords": [
+   "validation",
+   "accuracy",
+   "completeness",
+   "checks",
+   "trust"
+  ],
+  "answer": "Data quality is how fit data is for its intended use, measured across dimensions like accuracy (values are correct), completeness (nothing important is missing), consistency (the same fact agrees everywhere), timeliness (data is fresh enough), and uniqueness (no unintended duplicates). It matters because every report, dashboard, and machine learning model downstream inherits the data's flaws \u2014 poor quality data produces confident-looking but wrong decisions, which is why production pipelines include automated validation checks."
+ },
+ {
+  "question": "What is Snowflake?",
+  "keywords": [
+   "warehouse",
+   "cloud",
+   "sql",
+   "analytics",
+   "storage"
+  ],
+  "answer": "Snowflake is a cloud data warehouse platform used to store and query large amounts of structured data with SQL. Its key design choice is separating storage from compute: data is stored once, while independent virtual warehouses (compute clusters) query it concurrently without slowing each other down, and you pay for each separately. It is fully managed, scales up or down in seconds, and is popular for analytics because analysts get fast SQL queries without operating any servers."
+ },
+ {
+  "question": "What is Apache Spark?",
+  "keywords": [
+   "big data",
+   "distributed",
+   "pyspark",
+   "databricks",
+   "processing"
+  ],
+  "answer": "Apache Spark is a distributed computing engine for processing very large datasets across a cluster of machines. Work is split into tasks that run in parallel on many nodes, with data kept in memory between steps, which makes Spark much faster than older disk-based systems like MapReduce for iterative work. It is widely used for big ETL jobs, SQL analytics, streaming, and machine learning \u2014 in Python it is used through the PySpark API, and platforms like Databricks are built on it."
+ },
+ {
+  "question": "What is dbt?",
+  "keywords": [
+   "analytics engineering",
+   "transformation",
+   "sql",
+   "models",
+   "elt"
+  ],
+  "answer": "dbt (data build tool) is a tool for transforming data inside a warehouse using SQL. Analysts and engineers write models as SELECT queries, and dbt handles running them in the right dependency order, materializing them as tables or views, generating documentation, and testing the results (for example, checking that an ID column is unique and never null). It brought software-engineering practices \u2014 version control, modularity, automated tests \u2014 to the transformation step of the ELT workflow."
+ },
+ {
+  "question": "What is machine learning?",
+  "keywords": [
+   "ai",
+   "models",
+   "data",
+   "algorithms",
+   "prediction"
+  ],
+  "answer": "Machine learning is a branch of artificial intelligence where systems learn patterns from data instead of being explicitly programmed with rules. You show an algorithm many examples, it adjusts its internal parameters to reduce its prediction errors, and the resulting model can then classify, predict, or generate outputs for new data. It powers recommendations, spam filters, fraud detection, speech recognition, and the analytics models used across data engineering."
+ },
+ {
+  "question": "What is Agile and Scrum?",
+  "keywords": [
+   "sprint",
+   "standup",
+   "backlog",
+   "methodology",
+   "team"
+  ],
+  "answer": "Agile is a way of building software in short, iterative cycles with frequent feedback, instead of planning everything up front. Scrum is its most common framework: work is organized into sprints (usually two weeks), the team picks items from a prioritized product backlog, meets briefly every day (the stand-up), and ends each sprint with a working increment plus a review and retrospective. The goal is to deliver value early and adapt quickly when requirements change."
+ }
+]
